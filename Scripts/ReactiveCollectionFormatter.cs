@@ -2,6 +2,9 @@
 using MemoryPack;
 using UniRx;
 
+/// <summary>
+/// https://github.com/Cysharp/MemoryPack/blob/main/src/MemoryPack.Unity/Assets/Plugins/MemoryPack/Runtime/MemoryPack.Core/Formatters/GenericCollectionFormatters.cs#L16 の丸パクリです。
+/// </summary>
 public class ReactiveCollectionFormatter<TElement> : MemoryPackFormatter<ReactiveCollection<TElement>>
 {
     public override void Serialize(ref MemoryPackWriter writer, ref ReactiveCollection<TElement>? value)

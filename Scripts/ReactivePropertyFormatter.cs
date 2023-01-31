@@ -2,6 +2,9 @@
 using MemoryPack;
 using UniRx;
 
+/// <summary>
+/// https://github.com/Cysharp/MemoryPack#serialize-external-types を参考に作成
+/// </summary>
 public class ReactivePropertyFormatter<T> : MemoryPackFormatter<ReactiveProperty<T>>
 {
     public override void Serialize(ref MemoryPackWriter writer, ref ReactiveProperty<T>? value)

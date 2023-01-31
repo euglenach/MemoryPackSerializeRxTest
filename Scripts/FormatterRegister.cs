@@ -2,6 +2,9 @@
 using UniRx;
 using UnityEngine;
 
+/// <summary>
+/// MemoryPackFormatterProviderに登録するやつ
+/// </summary>
 public static class FormatterRegister
 {
     private static bool registered;

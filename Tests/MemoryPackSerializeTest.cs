@@ -15,9 +15,13 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
+            // フォーマッターの登録
             FormatterRegister.Register();
         }
         
+        /// <summary>
+        /// ReactiveProperty
+        /// </summary>
         [Test]
         public void ReactivePropertySerializeTest()
         {
@@ -38,6 +42,9 @@ namespace Tests
             Assert.That(p3.Value, Is.EqualTo(d3.Value));
         }
         
+        /// <summary>
+        /// ReactiveCollection
+        /// </summary>
         [Test]
         public void ReactiveCollectionSerializeTest([Range(0,10)] int length)
         {
@@ -63,6 +70,9 @@ namespace Tests
             }
         }
 
+        /// <summary>
+        /// ReactiveDictionary
+        /// </summary>
         [Test]
         public void ReactiveDictionarySerializeTest()
         {
