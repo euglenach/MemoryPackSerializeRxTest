@@ -14,20 +14,19 @@ public static class FormatterRegister
     {
         if(registered) return;
         registered = true;
-            
+        
+        // IL2CPPで死ぬかも
         MemoryPackFormatterProvider.RegisterGenericType(typeof(ReactiveProperty<>), typeof(ReactivePropertyFormatter<>));
         MemoryPackFormatterProvider.RegisterGenericType(typeof(ReactiveCollection<>), typeof(ReactiveCollectionFormatter<>));
         MemoryPackFormatterProvider.RegisterGenericType(typeof(ReactiveDictionary<,>), typeof(ReactiveDictionaryFormatter<,>));
         
-        // 一つ一つ列挙するのはダルいしいろいろ問題ある
-        // MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<string>());
-        // MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<int>());
-        // MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<float>());
-        // MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<int>, int>();
-        // MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<float>, float>();
-        // MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<string>, string>();
-        // MemoryPackFormatterProvider.RegisterCollection(typeof(ReactiveCollection<>));  // これはNG
-        // MemoryPackFormatterProvider.RegisterDictionary(typeof(ReactiveDictionary<,>)); // これもNG
+        // 使うであろう型を一つ一つ列挙する
+        MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<string>());
+        MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<int>());
+        MemoryPackFormatterProvider.Register(new ReactivePropertyFormatter<float>());
+        MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<int>, int>();
+        MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<float>, float>();
+        MemoryPackFormatterProvider.RegisterCollection<ReactiveCollection<string>, string>();
         
         // etc...
     }
